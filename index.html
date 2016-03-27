@@ -1,49 +1,49 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+  <head>
+    <meta charset="utf-8">
 
-		<title>reveal.js – The HTML Presentation Framework</title>
+    <title>reveal.js – The HTML Presentation Framework</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
 
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
 
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
 
     <!-- Personal CSS -->
     <link rel="stylesheet" href="css/custom.css">
-	</head>
+  </head>
 
-	<body>
+  <body>
 
-		<div class="reveal">
+    <div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-        <section id="scene1" data-background-video="videos/20160226%20Sunshine.mov" data-background-video-loop>
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section id="scene1" data-background-video="videos/Sunshine.mov" data-background-video-loop>
           <span>The case of the Grey Herons (Ardea cinerea): The effect of conspecifics on foraging efficiency of territorial feeders at Pasir Ris Park</span>
           <h2>Presented by</h2>
           <ul>
@@ -55,10 +55,10 @@
           </ul>
         </section>
 
-        <section id="scene2" data-background-video="videos/20160228%20Handsome.mov">
+        <section id="scene2" data-background-video="videos/Handsome.mov">
         </section>
         
-        <section id="scene2a" data-background-video="videos/20160228%20Fluffy.mov">
+        <section id="scene2a" data-background-video="videos/Fluffy.mov">
           <!-- Maybe move scene2a video into scene2 -->
         </section>
 
@@ -67,13 +67,13 @@
             <h1>Motivation of Study</h1>
             <span>Want to observe interactions with conspecifics</span>
           </p>
-          <p class="fragment">
+          <div class="fragment">
             <h1>Hypothesis</h1>
             <ol>
               <li>Shorter distance between conspecifics => Reduction in foraging efficiency</li>
               <li>Higher number of conspecifics => Reduction in foraging efficiency</li>
             </ol>
-          </p>
+          </div>
         </section>
 
         <section id="scene4">
@@ -81,11 +81,47 @@
         </section>
 
         <section id="scene5">
-          <h1>Tide table</h1>
+          <h1>Tide Levels</h1>
         </section>
         
         <section id="scene6">
           <h1>Equipment</h1>
+          <table>
+            <thead>
+              <tr>
+                <th>Camera model</th>
+                <th>Sensor width /mm</th>
+                <th>Sensor height /mm</th>
+                <th>Image resolution /(w x h)px</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Canon EOS Kiss X5</td>
+                <td>22.3</td>
+                <td>14.9</td>
+                <td>5184x3456<br>5184x2192</td>
+              </tr>
+              <tr>
+                <td>Canon EOS 5D Mark II</td>
+                <td>36</td>
+                <td>24</td>
+                <td>5184x3456</td>
+              </tr>
+              <tr>
+                <td>Casio EX-ZR50</td>
+                <td>6.17</td>
+                <td>4.55</td>
+                <td>4608x3456</td>
+              </tr>
+              <tr>
+                <td>Oppo R7s</td>
+                <td>4.69</td>
+                <td>3.52</td>
+                <td>4160x2340<br>6656x3744</td>
+              </tr>
+            </tbody>
+          </table>
         </section>
 
         <section id="scene7" data-background="images/alloccurrence.png" data-background-size="700px" data-state="img-bottom-right">
@@ -111,6 +147,9 @@
           </section>
           <section id="scene10a-hidden">
             <h1><em>Magic</em> Formulas</h1>
+            <p>$dist.\ from\ obj\ to\ camera$</p><p>$= \frac{focal\ length\ \> \times \> object\ height\ (mm) \> \times \> image\ height}{object\ height\ (px) \> \times \> sensor\ height}$</p>
+            <br>
+            <p>$x = \frac{dist.\ btwn\ objects\ (px) \> \times \> sensor\ width \> \times \> dist.\ from\ obj\ to\ camera}{focal\ length \> \times \> image\ width}$</p>
           </section>
         </section>
 
@@ -122,50 +161,58 @@
         </section>
 
         <section id="scene13">
-          <h1>Multiple herons feeding site</h1>
+          <small>Multiple herons feeding site</small>
         </section>
 
         <section id="scene14">
-          <h1>Limitations of study</h1>
+          <h1>Limitations</h1>
+          <ul>
+            <li>Distance is measured using approximation, with uncertainty of about 1m</li>
+            <li>Other factors affecting our observations</li>
+          </ul>
+        </section>
+
+        <section id="scene14a" data-background-video="videos/Kingfisher.mov" data-background-video-loop>
         </section>
 
         <section id="scene15">
-          <h1>Reiterate findings</h1>
+          <p>These results suggest that the presence of conspecifics adversely affects foraging efficiency, although we acknowledge that our study is limited by other factors</p>
         </section>
 
         <section id="scene16">
-          <h1>Video collage</h1>
+          <small>Video collage</small>
         </section>
-			</div>
-		</div>
+      </div>
+    </div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
 
-		<script>
+    <script>
 
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-				// Optional reveal.js plugins
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/math/math.js', async: true }
+        ]
+      });
 
-		</script>
+    </script>
 
-	</body>
+  </body>
 </html>
