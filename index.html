@@ -154,7 +154,16 @@
         </section>
 
         <section id="scene11">
-          <h1>Graphs</h1>
+          <h1>Results</h1>
+          <div class="anything">
+          <!--
+          {
+            "initialize": "function(container) {
+              return distToEfficiencyGraph(container);
+            }"
+          }
+          -->
+          </div>
         </section>
 
         <section id="scene12" data-background-video="videos/Exciting.mov" data-background-video-loop>
@@ -190,6 +199,7 @@
     </div>
 
     <script src="lib/js/head.min.js"></script>
+    <script src="lib/js/d3.min.js"></script>
     <script src="js/reveal.js"></script>
 
     <script>
@@ -212,9 +222,63 @@
           { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
           { src: 'plugin/zoom-js/zoom.js', async: true },
           { src: 'plugin/notes/notes.js', async: true },
-          { src: 'plugin/math/math.js', async: true }
+          { src: 'plugin/math/math.js', async: true },
+          { src: 'plugin/anything/anything.js' },
+        ],
+
+        anything: [
+          {
+            className: 'anything',
+            initialize: function(container, options) {
+              if (options && options.initialize) {
+                options.initialize(container);
+              }
+            }
+          }
         ]
+
       });
+
+			// http://stackoverflow.com/a/10284006/559119
+      // e.g. [[1, 11], [2, 22]] into [[1, 2], [11, 22]]
+			function zip(arrays) {
+				return arrays[0].map(function(_,i) {
+					return arrays.map(function(array) { return array[i] });
+				});
+			}
+      
+      function distToEfficiencyGraph(container) {
+        var width = 500,  // Width of <svg>.
+            height = 500;  // Height of <svg>.
+
+        // Dataset.
+        var x = [21.7, 23, 30.5, 12.87, 9.05, 90, 100, 40.94, 49.42, 46.94, 16.21, 15.92, 4.29],
+            y = [0, 0, 6.3, 0, 0, 33.3, 50, 50, 0, 6.7, 12.5, 3.8, 2.1];
+        var data = zip([x, y]);
+
+        // For mapping the original values to coordinates.
+        var xAxis = d3.scale.linear().domain([0, 120]).range([0, width]),
+            yAxis = d3.scale.linear().domain([60, 0]).range([0, height]);
+
+        // Append <svg>.
+        var svg = d3.select(container)
+          .append('svg')
+          .attr('width', width)
+          .attr('height', height);
+
+        // Draw circles.
+        svg.selectAll('circle')  // Select all circles, and add data.
+          .data(data)
+          .enter()
+          .append('circle')  // For each data, append a circle.
+            .transition()
+              .delay(function(d, i) { return i * 500; })  // Delay append in ms.
+              .duration(1000)  // Animation duration in ms.
+            .attr('fill', 'white')
+            .attr('cx', function(d) { return xAxis(d[0]); })  // x-coordinate.
+            .attr('cy', function(d) { return yAxis(d[1]); })  // y-coordinate.
+            .attr('r', 5);  // Radius.
+      };
 
     </script>
 
