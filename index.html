@@ -248,23 +248,36 @@
 			}
       
       function distToEfficiencyGraph(container) {
-        var width = 500,  // Width of <svg>.
-            height = 500;  // Height of <svg>.
+        var width = 800,  // Width of <svg>.
+            height = 400,  // Height of <svg>.
+            padding = 50;  // Padding used for elements in <svg>.
+            radius = 3;
 
         // Dataset.
         var x = [21.7, 23, 30.5, 12.87, 9.05, 90, 100, 40.94, 49.42, 46.94, 16.21, 15.92, 4.29],
             y = [0, 0, 6.3, 0, 0, 33.3, 50, 50, 0, 6.7, 12.5, 3.8, 2.1];
-        var data = zip([x, y]);
+        var data = zip([x, y]);  // TODO: Sort by x values.
 
         // For mapping the original values to coordinates.
-        var xAxis = d3.scale.linear().domain([0, 120]).range([0, width]),
-            yAxis = d3.scale.linear().domain([60, 0]).range([0, height]);
+        var xAxis = d3.scale.linear().domain([0, 120]).range([0 + padding, width - padding]),
+            yAxis = d3.scale.linear().domain([60, 0]).range([0 + padding, height - padding]);
 
-        // Append <svg>.
+        // Remove and append new <svg>.
+        d3.select(container).selectAll('svg').remove();
         var svg = d3.select(container)
           .append('svg')
           .attr('width', width)
           .attr('height', height);
+
+        // Draw x-axis and y-axis.
+        var xAxisSvg = svg.append('g')
+          .call(d3.svg.axis().scale(xAxis).orient('bottom'))
+          .attr('class', 'axis')
+          .attr('transform', 'translate(0, ' + (height - padding) + ')');
+        var yAxisSvg = svg.append('g')
+          .call(d3.svg.axis().scale(yAxis).orient('left'))
+          .attr('class', 'axis')
+          .attr('transform', 'translate(' + padding + ', 0)');
 
         // Draw circles.
         svg.selectAll('circle')  // Select all circles, and add data.
@@ -272,13 +285,20 @@
           .enter()
           .append('circle')  // For each data, append a circle.
             .transition()
-              .delay(function(d, i) { return i * 500; })  // Delay append in ms.
+              .delay(function(d, i) { return i * 300; })  // Delay append in ms.
               .duration(1000)  // Animation duration in ms.
             .attr('fill', 'white')
             .attr('cx', function(d) { return xAxis(d[0]); })  // x-coordinate.
             .attr('cy', function(d) { return yAxis(d[1]); })  // y-coordinate.
-            .attr('r', 5);  // Radius.
+            .attr('r', radius);
+
       };
+
+      Reveal.addEventListener('slidechanged', function(event) {
+        if (event.currentSlide.id === 'scene11') {
+          distToEfficiencyGraph(d3.select(event.currentSlide).select('.anything')[0][0]);
+        }
+      });
 
     </script>
 
