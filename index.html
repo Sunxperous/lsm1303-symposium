@@ -317,15 +317,15 @@
             .attr('cy', function(d) { return yAxis(d[1]); })  // y-coordinate.
             .attr('r', radius);
 
-          // Draw line. // TODO: Animate using css.
-          svg.append('line')
-            .transition()
-              .delay(data.length * 300)
-              .duration(1000)
-            .attr('x1', xAxis(8.0434)).attr('y1', yAxis(0))
-            .attr('x2', xAxis(120)).attr('y2', yAxis(0.515 * 100))
-            .attr('stroke', 'white')
-            .attr('stroke-width', radius);
+        // Draw line. // TODO: Animate using css.
+        svg.append('line')
+          .transition()
+            .delay(data.length * 300)
+            .duration(1000)
+          .attr('x1', xAxis(8.0434)).attr('y1', yAxis(0))
+          .attr('x2', xAxis(120)).attr('y2', yAxis(0.515 * 100))
+          .attr('stroke', 'white')
+          .attr('stroke-width', radius);
       };
 
       function numberToEfficiencyGraph(container) {
@@ -385,15 +385,15 @@
             .attr('cy', function(d) { return yAxis(d[1]); })  // y-coordinate.
             .attr('r', radius);
 
-          // Draw line. // TODO: Animate using css.
-          svg.append('line')
-            .transition()
-              .delay(data.length * 300)
-              .duration(1000)
-            .attr('x1', xAxis(0)).attr('y1', yAxis(0.546 * 100))
-            .attr('x2', xAxis(10)).attr('y2', yAxis(-0.084 * 100))
-            .attr('stroke', 'white')
-            .attr('stroke-width', radius);
+        // Draw line. // TODO: Animate using css.
+        svg.append('line')
+          .transition()
+            .delay(data.length * 300)
+            .duration(1000)
+          .attr('x1', xAxis(0)).attr('y1', yAxis(0.546 * 100))
+          .attr('x2', xAxis(10)).attr('y2', yAxis(-0.084 * 100))
+          .attr('stroke', 'white')
+          .attr('stroke-width', radius);
       }
 
       Reveal.addEventListener('slidechanged', function(event) {
