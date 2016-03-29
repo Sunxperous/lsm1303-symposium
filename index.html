@@ -82,6 +82,15 @@
 
         <section id="scene5">
           <h1>Tide Levels</h1>
+          <div class="anything">
+          <!--
+          {
+            "initialize": "function(container) {
+              return tideLevels(container);
+            }"
+          }
+          -->
+          </div>
         </section>
         
         <section id="scene6">
@@ -396,7 +405,101 @@
           .attr('stroke-width', radius);
       }
 
+      function tideLevels(container) {
+        var width = 800,  // Width of <svg>.
+            height = 500,  // Height of <svg>.
+            padding = {top: 20, right: 50, bottom: 100, left: 120};  // Padding used for elements in <svg>.
+            radius = 3;
+
+        // Dataset.
+        var data = [
+          ['', [[0], []]],
+          ['26 Feb', [[7*60 + 50, 70], [9*60 + 40, 150], [7*60 + 25, 70]], '0.7m @ 7:25'],
+          ['28 Feb', [[7*60 + 25, 100], [10*60 + 45, 150], [8*60 + 25, 70]], '0.7m @ 8:25'],
+          ['13 Mar', [[7*60 + 10, 100], [10*60 + 0, 150], [8*60 + 15, 30]], '0.3m @ 8:15'],
+          ['16 Mar', [[10*60 + 0, 100], [11*60 + 30, 100], [10*60 + 55, 60]], '0.6m @ 10:55'],
+          ['20 Mar', [[14*60 + 0, 150], [16*60 + 30, 60], [16*60 + 15, 50]], '0.5m @ 16:15'],
+          [' ', [[0], []]]
+        ];
+
+        // For mapping the original values to coordinates.
+        var xAxis = d3.scale.linear().domain([7*60, 17*60]).range([0 + padding.left, width - padding.right]),
+            yAxis = d3.scale.ordinal()
+              .domain(data.map(function(x) { return x[0]; }))
+              .rangePoints([height - padding.bottom, 0 + padding.top]);
+
+        var tideHeight = (height - padding.bottom - padding.top) / (data.length - 1);
+        var tideAxis = d3.scale.linear().domain([30, 150]).range([tideHeight, 0]);
+
+        // Remove and append new <svg>.
+        d3.select(container).selectAll('svg').remove();
+        var svg = d3.select(container)
+          .append('svg')
+          .attr('width', width)
+          .attr('height', height);
+
+        // Draw x-axis and y-axis.
+        var xAxisLine = svg.append('g')
+          .call(d3.svg.axis()
+              .scale(xAxis)
+              .tickValues([420, 480, 540, 600, 660, 720, 780, 840, 900, 960, 1020])
+              .tickFormat(function(d) { return (d / 60) + ''; })
+              .orient('bottom'))
+          .attr('class', 'axis')
+          .attr('transform', 'translate(0, ' + (height - padding.bottom) + ')')
+          .append('text')
+            .text('time /:00')
+            .attr('x', width / 2)
+            .attr('y', 70)
+            .attr('text-anchor', 'middle');
+
+        var yAxisLine = svg.append('g')
+          .call(d3.svg.axis().scale(yAxis).orient('left'))
+          .attr('class', 'axis')
+          .attr('transform', 'translate(' + padding.left + ', 0)');
+
+        // Draw tide lines.
+        var line = d3.svg.line()
+          .interpolate('basis')
+          .x(function(d, i) { return xAxis(d[0]); })
+          .y(function(d, i) { return tideAxis(d[1]); })
+
+        function sortAndSmoothen(c) {
+          c = c.sort(function(a, b) {
+            return a[0] < b[0];
+          });
+          c.splice(1, 0, [(c[0][0] + c[1][0]) / 2, c[0][1]]);
+          c.splice(3, 0, [(c[2][0] + c[3][0]) / 2, c[3][1]]);
+          return c;
+        }
+
+        data.forEach(function(item, i) {
+          var g = svg.append('g')
+            .attr('transform', 'translate(0, ' + i * tideHeight + ')')
+          if (item[1][0][0] !== 0) {
+            var path = g.append('path')
+              .attr('d', line(sortAndSmoothen(item[1])))
+              .attr('fill', 'none')
+              .attr('stroke', 'blue')
+              .attr('stroke-width', 10);
+            var midPoint = item[1][2][0];
+            if (midPoint > 13*60) {
+              var cx = xAxis(item[1][4][0]) - 120;
+            } else {
+              var cx = xAxis(item[1][0][0]) + 120; 
+            }
+            g.append('text')
+              .text(item[2])
+              .attr('text-anchor', 'middle')
+              .attr('transform', 'translate(' + cx + ', ' + tideHeight / 2 + ')');
+          }
+        });
+      }
+
       Reveal.addEventListener('slidechanged', function(event) {
+        if (event.currentSlide.id === 'scene5') {
+          tideLevels(d3.select(event.currentSlide).select('.anything')[0][0]);
+        }
         if (event.currentSlide.id === 'scene11') {
           distToEfficiencyGraph(d3.select(event.currentSlide).select('.anything')[0][0]);
         }
