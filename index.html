@@ -249,8 +249,8 @@
       
       function distToEfficiencyGraph(container) {
         var width = 800,  // Width of <svg>.
-            height = 400,  // Height of <svg>.
-            padding = 50;  // Padding used for elements in <svg>.
+            height = 500,  // Height of <svg>.
+            padding = {top: 20, right: 50, bottom: 100, left: 100};  // Padding used for elements in <svg>.
             radius = 3;
 
         // Dataset.
@@ -259,8 +259,8 @@
         var data = zip([x, y]);  // TODO: Sort by x values.
 
         // For mapping the original values to coordinates.
-        var xAxis = d3.scale.linear().domain([0, 120]).range([0 + padding, width - padding]),
-            yAxis = d3.scale.linear().domain([60, 0]).range([0 + padding, height - padding]);
+        var xAxis = d3.scale.linear().domain([0, 120]).range([0 + padding.left, width - padding.right]),
+            yAxis = d3.scale.linear().domain([60, 0]).range([0 + padding.top, height - padding.bottom]);
 
         // Remove and append new <svg>.
         d3.select(container).selectAll('svg').remove();
@@ -270,14 +270,26 @@
           .attr('height', height);
 
         // Draw x-axis and y-axis.
-        var xAxisSvg = svg.append('g')
+        var xAxisLine = svg.append('g')
           .call(d3.svg.axis().scale(xAxis).orient('bottom'))
           .attr('class', 'axis')
-          .attr('transform', 'translate(0, ' + (height - padding) + ')');
-        var yAxisSvg = svg.append('g')
+          .attr('transform', 'translate(0, ' + (height - padding.bottom) + ')')
+          .append('text')
+            .text('distance between herons /m')
+            .attr('x', width / 2)
+            .attr('y', 70)
+            .attr('text-anchor', 'middle');
+
+        var yAxisLine = svg.append('g')
           .call(d3.svg.axis().scale(yAxis).orient('left'))
           .attr('class', 'axis')
-          .attr('transform', 'translate(' + padding + ', 0)');
+          .attr('transform', 'translate(' + padding.left + ', 0)')
+          .append('text')
+            .text('foraging efficiency /%')
+            .attr('x', -60)
+            .attr('y', (height - padding.bottom) / 2)
+            .attr('text-anchor', 'middle')
+            .attr('transform', 'rotate(-90, -60, '+ (height - padding.bottom) / 2 + ')');
 
         // Draw circles.
         svg.selectAll('circle')  // Select all circles, and add data.
@@ -291,7 +303,6 @@
             .attr('cx', function(d) { return xAxis(d[0]); })  // x-coordinate.
             .attr('cy', function(d) { return yAxis(d[1]); })  // y-coordinate.
             .attr('r', radius);
-
       };
 
       Reveal.addEventListener('slidechanged', function(event) {
