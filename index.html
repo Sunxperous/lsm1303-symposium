@@ -139,20 +139,14 @@
           <p class="fragment"><em>Scan Sampling</em> with actual time units to record the <strong>general position</strong> of the herons within the area
         </section>
 
-        <section id="scene8">
-          <h1>Successful capture</h1>
+        <section id="scene8" data-background-video="videos/Success.mov">
         </section>
 
-        <section id="scene9">
-          <h1>Herons close to each other</h1>
+        <section id="scene9" data-background-video="videos/Group.mov">
         </section>
         
-        <section id="scene10">
-          <h1>Distance between herons</h1>
-        </section>
-
-        <section id="scene10a">
-          <section>
+        <section>
+          <section id="scene10" data-background-video="videos/Measure.mov">
           </section>
           <section id="scene10a-hidden">
             <h1><em>Magic</em> Formulas</h1>
@@ -191,12 +185,10 @@
         <section id="scene12" data-background-video="videos/Exciting.mov" data-background-video-loop>
         </section>
 
-        <section id="scene13">
-          <small>Multiple herons feeding site</small>
+        <section id="scene13" data-background-video="videos/Pair.mov">
         </section>
 
-        <section id="scene14">
-          <small>2 different videos of adult vs juvenile</small>
+        <section id="scene14" data-background-video="videos/Failure.mov">
         </section>
 
         <section id="scene15">
@@ -297,7 +289,7 @@
           .attr('class', 'axis')
           .attr('transform', 'translate(0, ' + (height - padding.bottom) + ')')
           .append('text')
-            .text('distance between herons /m')
+            .text('average distance between herons /m')
             .attr('x', width / 2)
             .attr('y', 70)
             .attr('text-anchor', 'middle');
@@ -481,7 +473,7 @@
               .attr('d', line(sortAndSmoothen(item[1])))
               .attr('fill', 'none')
               .attr('stroke', 'blue')
-              .attr('stroke-width', 10);
+              .attr('stroke-width', 8);
             var midPoint = item[1][2][0];
             if (midPoint > 13*60) {
               var cx = xAxis(item[1][4][0]) - 120;
