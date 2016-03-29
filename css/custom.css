@@ -1,3 +1,12 @@
 html.img-bottom-right div.slide-background.present {
   background-position: right bottom;
 }
+
+svg {
+  fill: white;
+  stroke-linecap: round;
+}
+
+svg text {
+  font-size: 0.8em;
+}
