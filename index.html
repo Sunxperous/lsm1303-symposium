@@ -64,7 +64,29 @@
         </section>
 
         <section id="scene4">
-          <h2>Map</h2>
+          <video class="stretch" src="videos/Map.mp4" autoplay></video>
+          <svg class="svg-overlay">
+            <marker xmlns="http://www.w3.org/2000/svg" id="triangle" viewBox="0 0 10 10" refX="0" refY="5" markerUnits="strokeWidth" markerWidth="4" markerHeight="3" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z"/>
+            </marker>
+            <g style="transition: opacity 3s ease 3s">
+            <line x1="42.5%" x2="43.75%" y1="87%" y2="74%" marker-end=url(#triangle)></line>
+            <text x="35%" y="79.5%">100m</text>
+            <line x1="44%" x2="48.5%" y1="72%" y2="73.5%" marker-end=url(#triangle)></line>
+            <text x="45%" y="70%">50m</text>
+            </g>
+            <g style="transition: opacity 3s ease 6s">
+            <line x2="48%" x1="49%" y2="18%" y1="6%" marker-end=url(#triangle)></line>
+            <text x="40%" y="14%">100m</text>
+            <line x1="48%" x2="55%" y1="20.5%" y2="22%" marker-end=url(#triangle)></line>
+            <text x="48%" y="27%">100m</text>
+            </g>
+            <g style="transition: opacity 3s ease 9s">
+            <line x2="58%" x1="60%" y2="20%" y1="8%" marker-end=url(#triangle)></line>
+            <line x1="57.75%" x2="71%" y1="22.5%" y2="27%" marker-end=url(#triangle)></line>
+            <text x="60%" y="30%">200m</text>
+            </g>
+          </svg>
         </section>
 
         <section id="scene5">
@@ -515,6 +537,10 @@
         if (event.currentSlide.id === 'scene11a') {
           numberToEfficiencyGraph(d3.select(event.currentSlide).select('.anything')[0][0]);
         }
+        d3.select(event.currentSlide).select('g').attr('class', '');
+        setTimeout(function() {
+          d3.select(event.currentSlide).selectAll('g').attr('class', 'opaque');
+        }, 1);
       });
     </script>
   </body>
