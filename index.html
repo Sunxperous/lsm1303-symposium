@@ -27,26 +27,30 @@
   <body>
     <div class="reveal">
       <div class="slides"><!-- Place <section> slides in this container -->
-        <section id="scene1" data-background-video="videos/Sunshine.mov" data-background-video-loop>
-          <div style="display: block; text-align: left; margin-bottom: 48px;">
-            <ul class="no-bullets overlay-video" style="font-size: 0.5em; margin-left: 0;">
-              <li>Ang Weili (A0114600B)</li>
-              <li>Han En Chou (A0081241U)</li>
-              <li>Kong Li Xian Roxanne (A0116165L)</li>
-              <li>Sun Wang Jun (A0110546R)</li>
-              <li>Wong Si Ying Vinncent (A0111888X)</li>
-            </ul>
+        <section id="scene1">
+          <video class="stretch video-to-background" data-src="videos/Sunshine.mov" loop data-autoplay></video>
+          <div style="position: absolute;">
+            <div style="display: block; text-align: left; margin-bottom: 48px;">
+              <ul class="no-bullets overlay-video" style="font-size: 0.5em; margin-left: 0;">
+                <li>Ang Weili (A0114600B)</li>
+                <li>Han En Chou (A0081241U)</li>
+                <li>Kong Li Xian Roxanne (A0116165L)</li>
+                <li>Sun Wang Jun (A0110546R)</li>
+                <li>Wong Si Ying Vinncent (A0111888X)</li>
+              </ul>
+            </div>
+            <h3 class="overlay-video"  style="text-align: left; margin: 0;">The case of the Grey Herons<br>
+              <em style="text-transform: initial;">Ardea cinerea</em></h3>
+            <p class="overlay-video" style="text-align: right; font-size: 0.7em; line-height: 1.2em; margin: 0;">The effect of conspecifics on foraging efficiency of territorial feeders at Pasir Ris Park</p>
           </div>
-          <h3 class="overlay-video"  style="text-align: left; margin: 0;">The case of the Grey Herons<br>
-            <em style="text-transform: initial;">Ardea cinerea</em></h3>
-          <p class="overlay-video" style="text-align: right; font-size: 0.7em; line-height: 1.2em; margin: 0;">The effect of conspecifics on foraging efficiency of territorial feeders at Pasir Ris Park</p>
         </section>
 
-        <section id="scene2" data-background-video="videos/Handsome.mov">
+        <section id="scene2">
+          <video class="stretch" data-src="videos/Handsome.mov" data-autoplay></video>
         </section>
         
-        <section id="scene2a" data-background-video="videos/Fluffy.mov">
-          <!-- Maybe move scene2a video into scene2 -->
+        <section id="scene2a">
+          <video class="stretch" data-src="videos/Fluffy.mov" data-autoplay></video>
         </section>
 
         <section id="scene3" class="margin">
@@ -63,8 +67,8 @@
           </div>
         </section>
 
-        <section id="scene4">
-          <video class="stretch" src="videos/Map.mp4" autoplay></video>
+        <section id="scene4" class="has-svg-overlay">
+          <video class="stretch" data-src="videos/Map.mp4" data-autoplay></video>
           <svg class="svg-overlay">
             <marker xmlns="http://www.w3.org/2000/svg" id="triangle" viewBox="0 0 10 10" refX="0" refY="5" markerUnits="strokeWidth" markerWidth="4" markerHeight="3" orient="auto">
               <path d="M 0 0 L 10 5 L 0 10 z"/>
@@ -75,13 +79,13 @@
             <line x1="44%" x2="48.5%" y1="72%" y2="73.5%" marker-end=url(#triangle)></line>
             <text x="45%" y="70%">50m</text>
             </g>
-            <g style="transition: opacity 3s ease 6s">
+            <g style="transition: opacity 3s ease 4s">
             <line x2="48%" x1="49%" y2="18%" y1="6%" marker-end=url(#triangle)></line>
             <text x="40%" y="14%">100m</text>
             <line x1="48%" x2="55%" y1="20.5%" y2="22%" marker-end=url(#triangle)></line>
             <text x="48%" y="27%">100m</text>
             </g>
-            <g style="transition: opacity 3s ease 9s">
+            <g style="transition: opacity 3s ease 6s">
             <line x2="58%" x1="60%" y2="20%" y1="8%" marker-end=url(#triangle)></line>
             <line x1="57.75%" x2="71%" y1="22.5%" y2="27%" marker-end=url(#triangle)></line>
             <text x="60%" y="30%">200m</text>
@@ -152,16 +156,17 @@
           <p class="fragment"><em>Scan Sampling</em> with actual time units to record the <strong>general position</strong> of the herons within the area
         </section>
 
-        <section id="scene8" data-background-video="videos/Success.mov">
+        <section id="scene8">
+          <video class="stretch" data-src="videos/Success.mov" data-autoplay></video>
         </section>
 
-        <section id="scene9" data-background-video="videos/Group.mov">
+        <section id="scene9">
+          <video class="stretch" data-src="videos/Group.mov" data-autoplay></video>
         </section>
         
         <section>
-          <section id="scene10" data-background-video="videos/Measure.mov">
-            <svg class="video-overlay">
-            </svg>
+          <section id="scene10">
+            <video class="stretch" data-src="videos/Measure.mov" data-autoplay></video>
           </section>
           <section id="scene10a-hidden">
             <h2><em>Magic</em> Formulas</h2>
@@ -200,19 +205,23 @@
         <section id="scene12">
         </section>
 
-        <section id="scene12a" data-background-video="videos/Exciting%20first.mov" data-background-video-loop>
+        <section id="scene12a">
+          <video class="stretch" data-src="videos/Exciting%20First.mov" data-autoplay></video>
         </section>
 
         <section id="scene12b">
         </section>
 
-        <section id="scene12c" data-background-video="videos/Exciting%20second.mov" data-background-video-loop>
+        <section id="scene12c">
+          <video class="stretch" data-src="videos/Exciting%20second.mov" data-autoplay></video>
         </section>
 
-        <section id="scene13" data-background-video="videos/Pair.mov">
+        <section id="scene13">
+          <video class="stretch" data-src="videos/Pair.mov" data-autoplay></video>
         </section>
 
-        <section id="scene14" data-background-video="videos/Failure.mov">
+        <section id="scene14">
+          <video class="stretch" data-src="videos/Failure.mov" data-autoplay></video>
         </section>
 
         <section id="scene15" class="margin">
@@ -224,7 +233,8 @@
           </ul>
         </section>
 
-        <section id="scene15a" data-background-video="videos/Kingfisher.mov" data-background-video-loop>
+        <section id="scene15a">
+          <video class="stretch" data-src="videos/Kingfisher.mov" data-autoplay></video>
         </section>
 
         <section id="scene16" class="margin">
@@ -247,7 +257,7 @@
         controls: true,
         progress: true,
         history: true,
-        center: true,
+        center: false,
 
         width: 1024,
         height: 768,
@@ -528,6 +538,7 @@
       }
 
       Reveal.addEventListener('slidechanged', function(event) {
+        var currSlide = d3.select(event.currentSlide);
         if (event.currentSlide.id === 'scene5') {
           tideLevels(d3.select(event.currentSlide).select('.anything')[0][0]);
         }
@@ -537,10 +548,12 @@
         if (event.currentSlide.id === 'scene11a') {
           numberToEfficiencyGraph(d3.select(event.currentSlide).select('.anything')[0][0]);
         }
-        d3.select(event.currentSlide).select('g').attr('class', '');
-        setTimeout(function() {
-          d3.select(event.currentSlide).selectAll('g').attr('class', 'opaque');
-        }, 1);
+        if (currSlide.classed('has-svg-overlay')) {
+          currSlide.select('g').attr('class', '');
+          setTimeout(function() {
+            currSlide.selectAll('g').attr('class', 'opaque');
+          }, 1);
+        }
       });
     </script>
   </body>

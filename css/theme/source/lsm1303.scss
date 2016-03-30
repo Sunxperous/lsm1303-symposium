@@ -71,6 +71,11 @@ svg.video-overlay {
   height: 100vh;
 }
 
+video.video-to-background {
+  position: absolute;
+  left: 0;
+}
+
 .axis path, .axis line {
   fill: none;
   stroke: black;
