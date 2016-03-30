@@ -16,7 +16,7 @@ body {
 
 ::selection {
   color: #fff;
-  background: #FF5E99;
+  background: #FFa500;
   text-shadow: none; }
 
 .reveal .slides > section,
@@ -35,7 +35,7 @@ body {
 .reveal h6 {
   margin: 0 0 20px 0;
   color: #eee;
-  font-family: "League Gothic", Impact, sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: normal;
   line-height: 1.2;
   letter-spacing: normal;
@@ -44,13 +44,13 @@ body {
   word-wrap: break-word; }
 
 .reveal h1 {
-  font-size: 3em; }
-
-.reveal h2 {
   font-size: 2em; }
 
-.reveal h3 {
+.reveal h2 {
   font-size: 1.5em; }
+
+.reveal h3 {
+  font-size: 1.25em; }
 
 .reveal h4 {
   font-size: 1em; }
@@ -198,20 +198,20 @@ body {
  * LINKS
  *********************************************/
 .reveal a {
-  color: #13DAEC;
+  color: #ffa500;
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
   transition: color .15s ease; }
 
 .reveal a:hover {
-  color: #71e9f4;
+  color: #ffc966;
   text-shadow: none;
   border: none; }
 
 .reveal .roll span:after {
   color: #fff;
-  background: #0d99a5; }
+  background: #b37400; }
 
 /*********************************************
  * IMAGES
@@ -233,7 +233,7 @@ body {
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
-  border-color: #13DAEC;
+  border-color: #ffa500;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
 
 /*********************************************
@@ -241,31 +241,31 @@ body {
  *********************************************/
 .reveal .controls .navigate-left,
 .reveal .controls .navigate-left.enabled {
-  border-right-color: #13DAEC; }
+  border-right-color: #ffa500; }
 
 .reveal .controls .navigate-right,
 .reveal .controls .navigate-right.enabled {
-  border-left-color: #13DAEC; }
+  border-left-color: #ffa500; }
 
 .reveal .controls .navigate-up,
 .reveal .controls .navigate-up.enabled {
-  border-bottom-color: #13DAEC; }
+  border-bottom-color: #ffa500; }
 
 .reveal .controls .navigate-down,
 .reveal .controls .navigate-down.enabled {
-  border-top-color: #13DAEC; }
+  border-top-color: #ffa500; }
 
 .reveal .controls .navigate-left.enabled:hover {
-  border-right-color: #71e9f4; }
+  border-right-color: #ffc966; }
 
 .reveal .controls .navigate-right.enabled:hover {
-  border-left-color: #71e9f4; }
+  border-left-color: #ffc966; }
 
 .reveal .controls .navigate-up.enabled:hover {
-  border-bottom-color: #71e9f4; }
+  border-bottom-color: #ffc966; }
 
 .reveal .controls .navigate-down.enabled:hover {
-  border-top-color: #71e9f4; }
+  border-top-color: #ffc966; }
 
 /*********************************************
  * PROGRESS BAR
@@ -274,13 +274,29 @@ body {
   background: rgba(0, 0, 0, 0.2); }
 
 .reveal .progress span {
-  background: #13DAEC;
+  background: #ffa500;
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
 
-section[data-background-video] h1, section[data-background-video] h2, section[data-background-video] h3, section[data-background-video] h4, section[data-background-video] h5, section[data-background-video] h6 {
+.reveal .overlay-video {
   background-color: rgba(16, 16, 16, 0.64); }
+
+.reveal ul.no-bullets {
+  list-style-type: none; }
+
+.reveal ol.overlay-video, .reveal ul.overlay-video {
+  padding: 1em; }
+
+svg.video-overlay {
+  position: absolute;
+  width: 100vh;
+  height: 100vh; }
+
+.axis path, .axis line {
+  fill: none;
+  stroke: black;
+  shape-rendering: crispEdges; }
 
 html.img-bottom-right div.slide-background {
   background-position: 90% 130%; }
@@ -291,6 +307,15 @@ svg {
 
 svg text {
   font-size: 0.8em; }
+
+svg line.best-fit {
+  stroke-dashoffset: 1000;
+  stroke-dasharray: 1000;
+  animation: dash 2s linear forwards; }
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0; } }
 
 .reveal section table {
   font-size: 0.7em; }

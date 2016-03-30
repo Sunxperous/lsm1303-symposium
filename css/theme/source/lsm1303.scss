@@ -16,7 +16,7 @@ $blockMargin: 20px;
 
 // Headings
 $headingMargin: 0 0 $blockMargin 0;
-$headingFont: 'League Gothic', Impact, sans-serif;
+$headingFont: 'Open Sans', sans-serif;
 $headingColor: #eee;
 $headingLineHeight: 1.2;
 $headingLetterSpacing: normal;
@@ -25,17 +25,17 @@ $headingTextShadow: none;
 $headingFontWeight: normal;
 $heading1TextShadow: $headingTextShadow;
 
-$heading1Size: 3em;
-$heading2Size: 2em;
-$heading3Size: 1.5em;
+$heading1Size: 2em;
+$heading2Size: 1.5em;
+$heading3Size: 1.25em;
 $heading4Size: 1.00em;
 
 // Links and actions
-$linkColor: #13DAEC;
+$linkColor: #ffa500;
 $linkColorHover: lighten( $linkColor, 20% );
 
 // Text selection
-$selectionBackgroundColor: #FF5E99;
+$selectionBackgroundColor: #FFa500;
 $selectionColor: #fff;
 
 section.has-light-background {
@@ -48,10 +48,30 @@ section.has-light-background {
 @import "../template/theme";
 // ---------------------------------------------
 
-section[data-background-video] {
-  h1, h2, h3, h4, h5, h6 {
-    background-color: rgba(16, 16, 16, 0.64);
+.reveal .overlay-video {
+  background-color: rgba(16, 16, 16, 0.64);
+}
+
+.reveal ul.no-bullets {
+  list-style-type: none;
+}
+
+.reveal {
+  ol.overlay-video, ul.overlay-video {
+    padding: 1em;
   }
+}
+
+svg.video-overlay {
+  position: absolute;
+  width: 100vh;
+  height: 100vh;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: black;
+  shape-rendering: crispEdges;
 }
 
 html.img-bottom-right div.slide-background {
@@ -65,6 +85,18 @@ svg {
 
 svg text {
   font-size: 0.8em;
+}
+
+svg line.best-fit {
+  stroke-dashoffset: 1000;
+  stroke-dasharray: 1000;
+  animation: dash 2s linear forwards;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 .reveal section table {
