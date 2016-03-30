@@ -327,8 +327,12 @@ svg path.tide {
   to {
     stroke-dashoffset: 120; } }
 
+.reveal section.margin {
+  margin: 1em;
+  width: auto; }
+
 .reveal section table {
-  font-size: 0.7em; }
+  font-size: 0.6em; }
 
 .reveal section table thead {
   font-size: 0.7em; }
