@@ -28,15 +28,18 @@
     <div class="reveal">
       <div class="slides"><!-- Place <section> slides in this container -->
         <section id="scene1" data-background-video="videos/Sunshine.mov" data-background-video-loop>
-          <h3 class="overlay-video">The case of the Grey Herons<br>(<em style="text-tranform: initial;">Ardea cinerea</em>)</h3>
-          <p class="overlay-video">The effect of conspecifics on foraging efficiency of territorial feeders at Pasir Ris Park</p>
-          <ul class="no-bullets overlay-video" style="font-size: 0.8em;">
-           <li>Ang WeiLi (A0114600B)</li>
-            <li>Han En Chou (A0081241U)</li>
-            <li>Kong Li Xian Roxanne (A0116165L)</li>
-            <li>Sun Wang Jun (A0110546R)</li>
-            <li>Wong Si Ying Vinncent (A0111888X)</li>
-          </ul>
+          <div style="display: block; text-align: left; margin-bottom: 48px;">
+            <ul class="no-bullets overlay-video" style="font-size: 0.5em; margin-left: 0;">
+              <li>Ang Weili (A0114600B)</li>
+              <li>Han En Chou (A0081241U)</li>
+              <li>Kong Li Xian Roxanne (A0116165L)</li>
+              <li>Sun Wang Jun (A0110546R)</li>
+              <li>Wong Si Ying Vinncent (A0111888X)</li>
+            </ul>
+          </div>
+          <h3 class="overlay-video"  style="text-align: left; margin: 0;">The case of the Grey Herons<br>
+            <em style="text-transform: initial;">Ardea cinerea</em></h3>
+          <p class="overlay-video" style="text-align: right; font-size: 0.7em; line-height: 1.2em; margin: 0;">The effect of conspecifics on foraging efficiency of territorial feeders at Pasir Ris Park</p>
         </section>
 
         <section id="scene2" data-background-video="videos/Handsome.mov">
@@ -226,6 +229,8 @@
 
         width: 800,
         height: 600,
+
+        margin: 0,
 
         transition: 'slide', // none/fade/slide/convex/concave/zoom
 
@@ -428,7 +433,7 @@
         var xAxis = d3.scale.linear().domain([7*60, 17*60]).range([0 + padding.left, width - padding.right]),
             yAxis = d3.scale.ordinal()
               .domain(data.map(function(x) { return x[0]; }))
-              .rangePoints([height - padding.bottom, 0 + padding.top]);
+              .rangePoints([0 + padding.top, height - padding.bottom]);
 
         var tideHeight = (height - padding.bottom - padding.top) / (data.length - 1);
         var tideAxis = d3.scale.linear().domain([30, 150]).range([tideHeight, 0]);
@@ -457,7 +462,7 @@
 
         var yAxisLine = svg.append('g')
           .call(d3.svg.axis().scale(yAxis).orient('left'))
-          .attr('class', 'axis')
+          .attr('class', 'axis date-axis')
           .attr('transform', 'translate(' + padding.left + ', 0)');
 
         // Draw tide lines.
@@ -484,7 +489,8 @@
               .attr('d', line(sortAndSmoothen(item[1])))
               .attr('fill', 'none')
               .attr('stroke', 'blue')
-              .attr('stroke-width', 8);
+              .attr('stroke-width', 8)
+              .attr('class', 'tide');
             var midPoint = item[1][2][0];
             if (midPoint > 13*60) {
               var cx = xAxis(item[1][4][0]) - distAway;
