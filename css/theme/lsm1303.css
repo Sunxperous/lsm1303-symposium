@@ -356,6 +356,18 @@ svg.svg-overlay {
   svg.svg-overlay g.opaque {
     opacity: 1;
     transition: opacity 3s linear; }
+  svg.svg-overlay circle {
+    stroke-width: 0.5%;
+    stroke: #ffa500;
+    fill: none;
+    stroke-dashoffset: 105;
+    stroke-dasharray: 0, 200;
+    animation: circular 3s linear forwards; }
+
+@keyframes circular {
+  to {
+    stroke-dashoffset: 105;
+    stroke-dasharray: 50, 0; } }
 
 .reveal section.margin {
   margin: 1em;

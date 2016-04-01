@@ -173,12 +173,12 @@
               <path d="M 0 0 L 10 5 L 0 10 z"/>
             </marker>
               <line x1="48.5%" x2="58%" y1="67%" y2="52%" marker-end="url(#triangle)">
-                <animate attributeName="x2" from="48.5%" to="58%" begin="0s" dur="3s" />
-                <animate attributeName="y2" from="67%" to="52%" begin="0s" dur="3s" />
+                <animate attributeName="x2" from="48.5%" to="58%" begin="0s" dur="2.5s" />
+                <animate attributeName="y2" from="67%" to="52%" begin="0s" dur="2.5s" />
               </line>
               <line x1="48.5%" x2="39%" y1="67%" y2="82%" marker-end="url(#triangle)">
-                <animate attributeName="x2" from="48.5%" to="39%" begin="0s" dur="3s" />
-                <animate attributeName="y2" from="67%" to="82%" begin="0s" dur="3s" />
+                <animate attributeName="x2" from="48.5%" to="39%" begin="0s" dur="2.5s" />
+                <animate attributeName="y2" from="67%" to="82%" begin="0s" dur="2.5s" />
               </line>
             </svg>
           </section>
@@ -190,8 +190,22 @@
           </section>
         </section>
 
-        <section id="scene10">
+        <section id="scene10" class="has-svg-overlay">
           <video class="stretch" data-src="videos/Group.mov" data-autoplay></video>
+          <svg class="svg-overlay">
+            <circle cx="36%" cy="40%" r="6%" style="animation-delay: 1s">
+              <animate attributeName="r" from="6%" to="6%" begin="2.5s" indefinite />
+            </circle>
+            <circle cx="48%" cy="48%" r="6%" style="animation-delay: 1.5s">
+              <animate attributeName="r" from="6%" to="6%" begin="3s" indefinite />
+            </circle>
+            <circle cx="62%" cy="39%" r="6%" style="animation-delay: 2s">
+              <animate attributeName="r" from="6%" to="6%" begin="3.5s" indefinite />
+            </circle>
+            <circle cx="64%" cy="30%" r="6%" style="animation-delay: 2.5s">
+              <animate attributeName="r" from="6%" to="6%" begin="4s" indefinite />
+            </circle>
+          </svg>
         </section>
         
 
