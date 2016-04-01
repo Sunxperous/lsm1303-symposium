@@ -100,6 +100,11 @@ svg .date-axis path {
   display: none;
 }
 
+text.tide-text {
+  fill: $backgroundColor;
+  font-size: 0.4em;
+}
+
 svg line.best-fit {
   stroke: $accentColorMain;
   stroke-dashoffset: 1000;
@@ -136,10 +141,9 @@ svg.svg-overlay {
   }
   g.opaque {
     opacity: 1;
+    transition: opacity 3s linear;
   }
 }
-
-
 
 .reveal section.margin {
   margin: 1em;
