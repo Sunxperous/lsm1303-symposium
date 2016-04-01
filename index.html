@@ -166,8 +166,21 @@
         </section>
 
         <section>
-          <section id="scene9">
+          <section id="scene9" class="has-svg-overlay">
             <video class="stretch" data-src="videos/Measure.mov" data-autoplay></video>
+            <svg class="svg-overlay">
+            <marker xmlns="http://www.w3.org/2000/svg" id="triangle" viewBox="0 0 10 10" refX="0" refY="5" markerUnits="strokeWidth" markerWidth="4" markerHeight="3" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z"/>
+            </marker>
+              <line x1="48.5%" x2="58%" y1="67%" y2="52%" marker-end="url(#triangle)">
+                <animate attributeName="x2" from="48.5%" to="58%" begin="0s" dur="3s" />
+                <animate attributeName="y2" from="67%" to="52%" begin="0s" dur="3s" />
+              </line>
+              <line x1="48.5%" x2="39%" y1="67%" y2="82%" marker-end="url(#triangle)">
+                <animate attributeName="x2" from="48.5%" to="39%" begin="0s" dur="3s" />
+                <animate attributeName="y2" from="67%" to="82%" begin="0s" dur="3s" />
+              </line>
+            </svg>
           </section>
           <section id="scene9a-hidden">
             <h2><em>Magic</em> Formulas</h2>
