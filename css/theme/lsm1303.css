@@ -305,7 +305,12 @@ video.video-to-background {
 
 html.img-bottom-right div.slide-background {
   background-size: 50vw auto !important;
-  background-position: 90% 125%; }
+  background-position: 90% 135%; }
+
+section#scene2b img {
+  position: absolute;
+  display: inline-block;
+  width: 40%; }
 
 svg {
   fill: white;
@@ -354,6 +359,7 @@ svg.svg-overlay {
 
 .reveal section.margin {
   margin: 1em;
+  margin-top: 0;
   width: auto; }
 
 .reveal section table {
