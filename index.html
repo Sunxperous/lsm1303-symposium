@@ -166,21 +166,17 @@
         </section>
 
         <section>
-          <section id="scene9" class="has-svg-overlay">
+          <section id="scene9">
+            <div class="anything" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;">
+            <!--
+            {
+              "initialize": "function(container) {
+                return drawDistanceLine(container);
+              }"
+            }
+            -->
+            </div>
             <video class="stretch" data-src="videos/Measure.mov" data-autoplay></video>
-            <svg class="svg-overlay">
-            <marker xmlns="http://www.w3.org/2000/svg" id="triangle" viewBox="0 0 10 10" refX="0" refY="5" markerUnits="strokeWidth" markerWidth="4" markerHeight="3" orient="auto">
-              <path d="M 0 0 L 10 5 L 0 10 z"/>
-            </marker>
-              <line x1="48.5%" x2="58%" y1="67%" y2="52%" marker-end="url(#triangle)">
-                <animate attributeName="x2" from="48.5%" to="58%" begin="0s" dur="2.5s" />
-                <animate attributeName="y2" from="67%" to="52%" begin="0s" dur="2.5s" />
-              </line>
-              <line x1="48.5%" x2="39%" y1="67%" y2="82%" marker-end="url(#triangle)">
-                <animate attributeName="x2" from="48.5%" to="39%" begin="0s" dur="2.5s" />
-                <animate attributeName="y2" from="67%" to="82%" begin="0s" dur="2.5s" />
-              </line>
-            </svg>
           </section>
           <section id="scene9a-hidden">
             <h2><em>Magic</em> Formulas</h2>
@@ -194,16 +190,12 @@
           <video class="stretch" data-src="videos/Group.mov" data-autoplay></video>
           <svg class="svg-overlay">
             <circle cx="36%" cy="40%" r="6%" style="animation-delay: 1s">
-              <animate attributeName="r" from="6%" to="6%" begin="2.5s" indefinite />
             </circle>
             <circle cx="48%" cy="48%" r="6%" style="animation-delay: 1.5s">
-              <animate attributeName="r" from="6%" to="6%" begin="3s" indefinite />
             </circle>
             <circle cx="62%" cy="39%" r="6%" style="animation-delay: 2s">
-              <animate attributeName="r" from="6%" to="6%" begin="3.5s" indefinite />
             </circle>
             <circle cx="64%" cy="30%" r="6%" style="animation-delay: 2.5s">
-              <animate attributeName="r" from="6%" to="6%" begin="4s" indefinite />
             </circle>
           </svg>
         </section>
@@ -617,6 +609,48 @@
         });
       }
 
+      function drawDistanceLine(container) {
+        d3.select(container).selectAll('svg').remove();
+        var svg = d3.select(container).append('svg').attr('class', 'svg-overlay');
+        svg.append('marker')
+          .attr({
+            'id': 'triangle',
+            'viewBox': '0 0 10 10',
+            'refX': 0,
+            'refY': 5,
+            'markerWidth': 4,
+            'markerHeight': 3,
+            'orient': 'auto'
+          })
+          .append('path')
+            .attr('d', 'M 0 0 L 10 5 L 0 10 z');
+
+        svg.append('line')
+          .attr({
+            'x1': '48.5%',
+            'y1': '67%',
+            'x2': '48.5%',
+            'y2': '67%',
+            'marker-end': 'url(#triangle)'
+          })
+          .transition()
+            .duration(2500)
+            .attr('x2', '58%')
+            .attr('y2', '52%');
+        svg.append('line')
+          .attr({
+            'x1': '48.5%',
+            'y1': '67%',
+            'x2': '48.5%',
+            'y2': '67%',
+            'marker-end': 'url(#triangle)'
+          })
+          .transition()
+            .duration(2500)
+            .attr('x2', '39%')
+            .attr('y2', '82%');
+      }
+
       Reveal.addEventListener('slidechanged', function(event) {
         var currSlide = d3.select(event.currentSlide);
         if (event.currentSlide.id === 'scene5') {
@@ -632,11 +666,24 @@
           numberToEfficiencyGraph(d3.select(event.currentSlide).select('.anything')[0][0], false);
           currSlide.append('i').attr('class', 'fragment').attr('data-slide-id', 'scene11a');
         }
-        if (currSlide.classed('has-svg-overlay')) {
+        if (event.currentSlide.id === 'scene4') {
           currSlide.selectAll('g').attr('class', '');
+          var svg = currSlide.selectAll('svg').remove();
+          currSlide.append(function() {
+            return svg.node();
+          });
           setTimeout(function() {
             currSlide.selectAll('g').attr('class', 'opaque');
           }, 1000);
+        }
+        if (event.currentSlide.id === 'scene9') {
+          drawDistanceLine(d3.select(event.currentSlide).select('.anything')[0][0]);
+        }
+        if (currSlide.classed('has-svg-overlay')) {
+          var svg = currSlide.selectAll('svg').remove();
+            currSlide.append(function() {
+              return svg.node();
+            });
         }
       });
 
