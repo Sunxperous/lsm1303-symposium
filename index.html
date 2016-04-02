@@ -247,15 +247,15 @@
           <video class="stretch" data-src="videos/Exciting%20First.mov" data-autoplay></video>
         </section>
 
-        <section id="scene12b" class="margin">
+        <section id="scene12b">
+          <video class="stretch" data-src="videos/Exciting%20second.mov" data-autoplay></video>
+        </section>
+
+        <section id="scene12c" class="margin">
           <h2>Literature Review</h2>
           <p><small>Cook, D. C. (1978). Grey Herons Ardea cinerea holding<br>feeding territories on the Ythan Estuary. Bird study, 25(1), 11-16.</small></p>
           <p><small>Snow, D. W.; Perrins, C. M. 1998. The Birds of the Western Palearctic vol. 1:<br>Non-Passerines. Oxford University Press, Oxford.</small></p>
           <p>"The species is typically a solitary feeder but at abundant temporary food sources, or where available feeding areas are restricted, large congregations may occur”</p>
-        </section>
-
-        <section id="scene12c">
-          <video class="stretch" data-src="videos/Exciting%20second.mov" data-autoplay></video>
         </section>
 
         <section id="scene13">
@@ -642,7 +642,6 @@
 
       Reveal.addEventListener('fragmentshown', function(event) {
         var currSlide = event.fragment.dataset.slideId;
-        console.log(currSlide);
         if (currSlide === 'scene11') {
           distToEfficiencyGraph(d3.select('#' + currSlide).select('.anything')[0][0]);
         }
