@@ -207,7 +207,6 @@
             </circle>
           </svg>
         </section>
-        
 
         <section id="scene11">
           <h2>Results</h2>
@@ -220,6 +219,7 @@
           }
           -->
           </div>
+          <i class="fragment" data-slide-id="scene11"></i>
         </section>
 
         <section id="scene11a">
@@ -233,6 +233,7 @@
           }
           -->
           </div>
+          <i class="fragment" data-slide-id="scene11a"></i>
         </section>
 
         <section id="scene12" class="margin">
@@ -356,7 +357,7 @@
 				});
 			}
       
-      function distToEfficiencyGraph(container) {
+      function distToEfficiencyGraph(container, plotAndDraw) {
         var width = 800,  // Width of <svg>.
             height = 500,  // Height of <svg>.
             padding = {top: 20, right: 50, bottom: 100, left: 100};  // Padding used for elements in <svg>.
@@ -404,6 +405,10 @@
             .attr('text-anchor', 'middle')
             .attr('transform', 'rotate(-90, -60, '+ (height - padding.bottom) / 2 + ')');
 
+        if (plotAndDraw === false) {
+          return;
+        }
+
         // Draw circles.
         var animationDelay = 100;
         svg.selectAll('circle')  // Select all circles, and add data.
@@ -429,7 +434,7 @@
           .attr('class', 'best-fit');
       };
 
-      function numberToEfficiencyGraph(container) {
+      function numberToEfficiencyGraph(container, plotAndDraw) {
         var width = 800,  // Width of <svg>.
             height = 500,  // Height of <svg>.
             padding = {top: 20, right: 50, bottom: 100, left: 100};  // Padding used for elements in <svg>.
@@ -476,6 +481,10 @@
             .attr('y', (height - padding.bottom) / 2)
             .attr('text-anchor', 'middle')
             .attr('transform', 'rotate(-90, -60, '+ (height - padding.bottom) / 2 + ')');
+
+        if (plotAndDraw === false) {
+          return;
+        }
 
         // Draw circles.
         var animationDelay = 200;
@@ -614,16 +623,42 @@
           tideLevels(d3.select(event.currentSlide).select('.anything')[0][0]);
         }
         if (event.currentSlide.id === 'scene11') {
-          distToEfficiencyGraph(d3.select(event.currentSlide).select('.anything')[0][0]);
+          currSlide.select('i').remove();
+          distToEfficiencyGraph(d3.select(event.currentSlide).select('.anything')[0][0], false);
+          currSlide.append('i').attr('class', 'fragment').attr('data-slide-id', 'scene11');
         }
         if (event.currentSlide.id === 'scene11a') {
-          numberToEfficiencyGraph(d3.select(event.currentSlide).select('.anything')[0][0]);
+          currSlide.select('i').remove();
+          numberToEfficiencyGraph(d3.select(event.currentSlide).select('.anything')[0][0], false);
+          currSlide.append('i').attr('class', 'fragment').attr('data-slide-id', 'scene11a');
         }
         if (currSlide.classed('has-svg-overlay')) {
           currSlide.selectAll('g').attr('class', '');
           setTimeout(function() {
             currSlide.selectAll('g').attr('class', 'opaque');
           }, 1000);
+        }
+      });
+
+      Reveal.addEventListener('fragmentshown', function(event) {
+        var currSlide = event.fragment.dataset.slideId;
+        console.log(currSlide);
+        if (currSlide === 'scene11') {
+          distToEfficiencyGraph(d3.select('#' + currSlide).select('.anything')[0][0]);
+        }
+        if (currSlide === 'scene11a') {
+          numberToEfficiencyGraph(d3.select('#' + currSlide).select('.anything')[0][0]);
+        }
+      });
+
+      Reveal.addEventListener('fragmenthidden', function(event) {
+        var currSlide = event.fragment.dataset.slideId;
+        console.log(currSlide);
+        if (currSlide === 'scene11') {
+          distToEfficiencyGraph(d3.select('#' + currSlide).select('.anything')[0][0], false);
+        }
+        if (currSlide === 'scene11a') {
+          numberToEfficiencyGraph(d3.select('#' + currSlide).select('.anything')[0][0], false);
         }
       });
     </script>
