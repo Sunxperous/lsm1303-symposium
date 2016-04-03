@@ -29,9 +29,10 @@
       <div class="slides"><!-- Place <section> slides in this container -->
         <section id="scene1">
           <video class="stretch video-to-background" data-src="videos/Sunshine.mov" loop data-autoplay></video>
-          <div style="position: absolute; top: 180px;">
+          <div style="position: absolute; top: 160px;">
             <div style="display: block; text-align: left; margin-bottom: 28px;">
               <ul class="no-bullets overlay-video" style="font-size: 0.5em; margin-left: 0;">
+                <li><em>Group 34</em></li>
                 <li>Ang Weili (A0114600B)</li>
                 <li>Han En Chou (A0081241U)</li>
                 <li>Kong Li Xian Roxanne (A0116165L)</li>
@@ -52,11 +53,13 @@
         <section id="scene2a">
           <video class="stretch" data-src="videos/Fluffy.mov" data-autoplay></video>
         </section>
-
+        
+        <!--
         <section id="scene2b" style="height: 100%">
           <img src="images/Juvenile.jpg" style="top: 30%; left: 45%; transform: scale(1.4) rotate(10deg);">
           <img src="images/Adult.jpg" style="top: 10%; left: 5%; transform: scale(1.2) rotate(-10deg);">
         </section>
+        //-->
 
         <section id="scene3" class="margin">
           <p>
@@ -66,8 +69,8 @@
           <div class="fragment">
             <h2>Hypothesis</h2>
             <ol>
-              <li>Shorter distance between conspecifics => Reduction in foraging efficiency</li>
-              <li>Higher number of conspecifics => Reduction in foraging efficiency</li>
+              <li class="fragment"><em>Shorter distance</em> between conspecifics => <em>Reduction</em> in foraging efficiency</li>
+              <li class="fragment"><em>Higher number</em> of conspecifics => <em>Reduction</em> in foraging efficiency</li>
             </ol>
           </div>
         </section>
@@ -155,10 +158,10 @@
           </table>
         </section>
 
-        <section id="scene7" class="margin" data-background="images/alloccurrence.png" data-background-size="700px" data-state="img-bottom-right">
+        <section id="scene7" data-background="images/alloccurrence.png" data-background-size="700px" data-state="img-bottom-right">
           <h2>Sampling methods</h2>
-          <p class="fragment"><em>All Occurrence Sampling</em> to record <strong>foraging counts</strong> by the herons in our observation area</p>
-          <p class="fragment"><em>Scan Sampling</em> with actual time units to record the <strong>general position</strong> of the herons within the area
+          <p class="fragment"><em>All Occurrence Sampling</em><!-- to record <strong>foraging counts</strong> by the herons in our observation area//--></p>
+          <p class="fragment"><em>Scan Sampling</em><!-- with actual time units to record the <strong>general position</strong> of the herons within the area//-->
         </section>
 
         <section id="scene8">
@@ -188,7 +191,7 @@
 
         <section id="scene10" class="has-svg-overlay">
           <video class="stretch" data-src="videos/Group.mov" data-autoplay></video>
-          <svg class="svg-overlay">
+          <svg class="svg-overlay" style="opacity: 0.8">
             <circle cx="36%" cy="40%" r="6%" style="animation-delay: 1s">
             </circle>
             <circle cx="48%" cy="48%" r="6%" style="animation-delay: 1.5s">
@@ -239,9 +242,11 @@
           <video class="stretch" data-src="videos/Exciting%20First.mov" data-autoplay></video>
         </section>
 
+        <!--
         <section id="scene12b">
           <video class="stretch" data-src="videos/Exciting%20second.mov" data-autoplay></video>
         </section>
+        //-->
 
         <section id="scene12c" class="margin">
           <h2>Literature Review</h2>
@@ -254,35 +259,42 @@
           <video class="stretch" data-src="videos/Pair.mov" data-autoplay></video>
         </section>
 
+        <!--
         <section id="scene14">
           <video class="stretch" data-src="videos/Failure.mov" data-autoplay></video>
         </section>
+        //-->
 
         <section id="scene15" class="margin">
           <h2>Limitations</h2>
-          <ul>
-            <li>Distance is measured using approximation, with uncertainty of about 1m</li>
-            <li>Sunlight reflected off water may affect foraging efficiency</li>
-            <li>Presence of animals like turtles, monitor lizard and other birds</li>
+          <ul class="space-out">
+            <li class="fragment">Distance is measured using <em>image analysis</em>, with uncertainty</li>
+            <li class="fragment">Foraging efficiency may be affected by <em>sunlight reflected</em> off water</li>
+            <li class="fragment"><em>Presence of other animals</em> like turtles, monitor lizard and other birds</li>
           </ul>
         </section>
 
         <section id="scene15a">
-          <video class="stretch" data-src="videos/Kingfisher.mov" data-autoplay></video>
+          <video class="stretch" data-src="videos/Kingfisher.mov" data-autoplay loop></video>
         </section>
 
         <section id="scene16" class="margin">
           <h2>Hypothesis</h2>
           <ol>
-            <li>Shorter distance between conspecifics => Reduction in foraging efficiency</li>
-            <li>Higher number of conspecifics => Reduction in foraging efficiency</li>
+            <li><em>Shorter distance</em> between conspecifics => <em>Reduction</em> in foraging efficiency</li>
+            <li><em>Higher number</em> of conspecifics => <em>Reduction</em> in foraging efficiency</li>
           </ol>
-          <h2>Findings</h2>
-          <p>These results suggest that the presence of conspecifics adversely affects foraging efficiency, although we acknowledge that our study is limited by other factors</p>
+          <div class="fragment">
+            <h2>Findings</h2>
+            <p>These results suggest that the <em>presence of conspecifics adversely affects foraging efficiency</em>, although we acknowledge that our study is limited by other factors</p>
+          </div>
         </section>
 
         <section id="scene17">
-          <small>Video collage</small>
+          <video data-src="videos/Failure.mov" data-autoplay></video>
+          <video data-src="videos/Failure.mov" data-autoplay></video>
+          <video data-src="videos/Failure.mov" data-autoplay></video>
+          <video data-src="videos/Failure.mov" data-autoplay></video>
         </section>
 
         <section id="scene18">
@@ -304,7 +316,7 @@
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
-        controls: true,
+        controls: false,
         progress: true,
         history: true,
         center: false,
@@ -365,7 +377,7 @@
         });
 
         // For mapping the original values to coordinates.
-        var xAxis = d3.scale.linear().domain([0, 120]).range([0 + padding.left, width - padding.right]),
+        var xAxis = d3.scale.linear().domain([0, 100]).range([0 + padding.left, width - padding.right]),
             yAxis = d3.scale.linear().domain([60, 0]).range([0 + padding.top, height - padding.bottom]);
 
         // Remove and append new <svg>.
@@ -377,7 +389,7 @@
 
         // Draw x-axis and y-axis.
         var xAxisLine = svg.append('g')
-          .call(d3.svg.axis().scale(xAxis).ticks(120 / 20).orient('bottom'))
+          .call(d3.svg.axis().scale(xAxis).ticks(100 / 20).orient('bottom'))
           .attr('class', 'axis')
           .attr('transform', 'translate(0, ' + (height - padding.bottom) + ')')
           .append('text')
@@ -420,7 +432,7 @@
           .transition()
             .delay(data.length / 2 * animationDelay)
           .attr('x1', xAxis(8.0434)).attr('y1', yAxis(0))
-          .attr('x2', xAxis(120)).attr('y2', yAxis(0.515 * 100))
+          .attr('x2', xAxis(100)).attr('y2', yAxis(0.423 * 100))
           .attr('stroke', 'white')
           .attr('stroke-width', radius)
           .attr('class', 'best-fit');
@@ -653,6 +665,10 @@
 
       Reveal.addEventListener('slidechanged', function(event) {
         var currSlide = d3.select(event.currentSlide);
+        if (event.currentSlide.id === 'scene4') {
+          d3.select(event.currentSlide).select('video')[0][0].defaultPlaybackRate = 0.5;
+          d3.select(event.currentSlide).select('video')[0][0].playbackRate = 0.5;
+        }
         if (event.currentSlide.id === 'scene5') {
           tideLevels(d3.select(event.currentSlide).select('.anything')[0][0]);
         }
@@ -699,7 +715,6 @@
 
       Reveal.addEventListener('fragmenthidden', function(event) {
         var currSlide = event.fragment.dataset.slideId;
-        console.log(currSlide);
         if (currSlide === 'scene11') {
           distToEfficiencyGraph(d3.select('#' + currSlide).select('.anything')[0][0], false);
         }

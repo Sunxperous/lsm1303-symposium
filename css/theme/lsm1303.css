@@ -5,8 +5,8 @@ section.has-light-background, section.has-light-background h1, section.has-light
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #2b2b2b;
-  background-color: #2b2b2b; }
+  background: #000;
+  background-color: #000; }
 
 .reveal {
   font-family: "Lato", sans-serif;
@@ -300,7 +300,7 @@ video.video-to-background {
 
 .axis path, .axis line {
   fill: none;
-  stroke: black;
+  stroke: gray;
   shape-rendering: crispEdges; }
 
 html.img-bottom-right div.slide-background {
@@ -323,7 +323,7 @@ svg .date-axis path {
   display: none; }
 
 text.tide-text {
-  fill: #2b2b2b;
+  fill: #000;
   font-size: 0.4em; }
 
 svg line.best-fit {
@@ -358,7 +358,7 @@ svg.svg-overlay {
     transition: opacity 3s linear; }
   svg.svg-overlay circle {
     stroke-width: 0.5%;
-    stroke: #ffa500;
+    stroke: #fff;
     fill: none;
     stroke-dashoffset: 105;
     stroke-dasharray: 0, 200;
@@ -388,3 +388,10 @@ svg.svg-overlay {
   border: 0;
   display: block;
   width: 3em; }
+
+#scene17 video {
+  display: inline-block;
+  width: 50%; }
+
+ul.space-out li {
+  margin-bottom: 64px; }

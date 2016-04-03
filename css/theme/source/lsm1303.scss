@@ -4,7 +4,7 @@
 // ---------------------------------------------
 
 // Background of the presentation
-$backgroundColor: #2b2b2b;
+$backgroundColor: #000;
 
 // Primary/body text
 $mainFont: 'Lato', sans-serif;
@@ -78,7 +78,7 @@ video.video-to-background {
 
 .axis path, .axis line {
   fill: none;
-  stroke: black;
+  stroke: gray;
   shape-rendering: crispEdges;
 }
 
@@ -151,7 +151,7 @@ svg.svg-overlay {
   }
   circle {
     stroke-width: 0.5%;
-    stroke: $accentColorMain;
+    stroke: #fff;
     fill: none;
     stroke-dashoffset: 105;
     stroke-dasharray: 0, 200;
@@ -189,4 +189,13 @@ svg.svg-overlay {
   border: 0;
   display: block;
   width: 3em;
+}
+
+#scene17 video {
+  display: inline-block;
+  width: 50%;
+}
+
+ul.space-out li {
+  margin-bottom: 64px;
 }
