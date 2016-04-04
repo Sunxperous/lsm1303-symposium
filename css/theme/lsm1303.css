@@ -324,7 +324,7 @@ svg .date-axis path {
 
 text.tide-text {
   fill: #000;
-  font-size: 0.4em; }
+  font-size: 0.6em; }
 
 svg line.best-fit {
   stroke: #ffa500;
@@ -389,9 +389,20 @@ svg.svg-overlay {
   display: block;
   width: 3em; }
 
-#scene17 video {
+#scene17 video, #scene17 img {
   display: inline-block;
-  width: 50%; }
+  width: 33%;
+  border: none;
+  margin-bottom: -16px;
+  margin-right: -4px;
+  margin-left: -4px;
+  margin-top: 0; }
 
 ul.space-out li {
   margin-bottom: 64px; }
+
+#scene18 {
+  font-size: 0.6em; }
+
+#scene18 em {
+  color: #eee; }

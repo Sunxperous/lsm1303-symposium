@@ -291,19 +291,29 @@
         </section>
 
         <section id="scene17">
-          <video data-src="videos/Failure.mov" data-autoplay></video>
-          <video data-src="videos/Failure.mov" data-autoplay></video>
-          <video data-src="videos/Failure.mov" data-autoplay></video>
-          <video data-src="videos/Failure.mov" data-autoplay></video>
+          <video data-src="videos/Arrival.mov" data-autoplay loop></video>
+          <video data-src="videos/Catwalk.mov" data-autoplay loop></video>
+          <video data-src="videos/Branches.mov" data-autoplay loop></video>
+          <video data-src="videos/swimmer.mov" data-autoplay loop></video>
+          <img src="images/Night-heron.jpg" />
+          <video data-src="videos/penguins.mov" data-autoplay loop></video>
+          <video data-src="videos/Scare.mov" data-autoplay loop></video>
+          <video data-src="videos/Scratch.mov" data-autoplay loop></video>
+          <video data-src="videos/Soar.mov" data-autoplay loop></video>
         </section>
 
-        <section id="scene18">
+        <section id="scene18" class="margin">
           <h2>References</h2>
           <ol>
-            <li>Grey Herons Ardea cinerea holding Feeding Territories on the Ythan Estuary (D. C. Cook, 1978)</li>
-            <li>TERRITORIAL FEEDING AND COLONIAL BREEDING ARE NOT MUTUALLY EXCLUSIVE: THE CASE OF THE GREY HERON (ARDEA CINEREA) (1989, L. Marion)</li>
-            <li>Foraging Behaviour and Food of Grey Herons Ardea cinerea on the Ythan Estuary (David C. Cook)</li>
-            <li>Snow and Perrins 1998, Kushlan and Hancock 2005</li>
+            <li>Cook, D. C. (1978). Grey Herons <em>Ardea cinerea</em> holding feeding territories on the Ythan Estuary. Bird study, 25(1), 11-16.</li>
+            <li>Marion, L. (1989). Territorial feeding and colonial breeding are not mutually exclusive: The case of the grey heron (<em>Ardea cinerea</em>). The Journal of Animal Ecology, 693-710.</li>
+            <li>Cook, D. C. (1978). Foraging behaviour and food of Grey Herons <em>Ardea cinerea</em> on the Ythan Estuary. Bird Study, 25(1), 17-22.</li>
+            <li>Snow, D. W.; Perrins, C. M. (1998). The Birds of the Western Palearctic vol. 1: Non-Passerines. Oxford University Press, Oxford.</li>
+            <li>Tides and solunar charts Singapore. Retrieved from http://www.tides4fishing.com/as/singapore/singapur</li>
+            <li>Sawara, Y, Azuma, N, Hino, K, Fukui, K, Demachi, G, & Sakuyama, Muneki. (1990). Feeding Activity of the Grey Heron <em>Ardea cinerea</em> in Tidal and Non-tidal Environments.  Japanese Journal of Ornithology, 39(2), 45-52.</li>
+            <li><em>Ardea cinerea</em>. Retrieved from http://lkcnhm.nus.edu.sg/dna/organisms/details/20</li>
+            <li><em>Ardea cinerea</em> grey heron. Retrieved from http://animaldiversity.org/accounts/Ardea_cinerea/</li>
+            <li>How do I calculate the distance of an object in a photo? Retrieved from http://photo.stackexchange.com/questions/12434/how-do-i-calculate-the-distance-of-an-object-in-a-photo</li>
           </ol>
         </section>
       </div>
@@ -582,7 +592,7 @@
           return c;
         }
 
-        var distAway = 10;
+        var distAway = 30;
         data.forEach(function(item, i) {
           var g = svg.append('g')
             .attr('transform', 'translate(0, ' + i * tideHeight + ')')
